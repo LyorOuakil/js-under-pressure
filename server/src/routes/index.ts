@@ -1,4 +1,4 @@
-import { Application, Response, NextFunction, Request } from 'express';
+import { Application } from 'express';
 import { Exercise } from '../data/exerciseSet';
 import { getAll } from '../data/exerciseSet';
 
