@@ -4,17 +4,15 @@ import axios from 'axios';
 export const useFetchData = (path) => {
   const [error, setError] = useState('');
   const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(async () => {
     try {
-      setLoading(true);
       const response = await axios.get(path);
       setData(response.data);
+      setLoading(false);
     } catch (err) {
       setError(err);
-      // eslint-disable-next-line no-debugger
-    } finally {
       setLoading(false);
     }
   }, []);
