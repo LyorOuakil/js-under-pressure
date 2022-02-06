@@ -1,16 +1,11 @@
 import PropTypes from 'prop-types';
 import CodeEditor from '@uiw/react-textarea-code-editor';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
-// eslint-disable-next-line react/prop-types
 export const Editor = ({ codes }) => {
-  // eslint-disable-next-line react/prop-types
-  const [code, setCode] = useState('');
+  const [code, setCode] = useState(codes.baseCode);
   console.log(codes);
 
-  useEffect(() => {
-    setCode(codes[0].baseCode);
-  }, []);
   return (
     <div
       id="code_editor"
@@ -35,9 +30,7 @@ export const Editor = ({ codes }) => {
 };
 
 Editor.PropTypes = {
-  codes: PropTypes.shape([
-    {
-      baseCode: PropTypes.string
-    }
-  ])
+  codes: PropTypes.shape({
+    baseCode: PropTypes.string
+  })
 };
