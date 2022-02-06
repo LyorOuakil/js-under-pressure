@@ -1,8 +1,8 @@
 import express from 'express';
+import { initServer } from './server';
 
 const app = express();
-const port = 3000;
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
-app.listen(port, () => {
-  return console.log(`server is listening on ${port}`);
-});
+initServer(app);
