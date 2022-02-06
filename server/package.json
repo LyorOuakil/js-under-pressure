@@ -6,7 +6,7 @@
   "scripts": {
     "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
     "build": "tsc",
-    "test": "mocha -r ts-node/register 'tests/**/*.ts' --watchAll",
+    "test": "NODE_ENV=TEST mocha -r ts-node/register 'tests/**/*.ts' --watchAll",
     "start": "./node_modules/.bin/ts-node-dev src/index.ts",
     "eslint:fix": "eslint --fix"
   },
