@@ -25,7 +25,7 @@ test('Should get a data array', async () => {
   expect(Array.isArray(result.current.data)).toBeTruthy();
 });
 
-test('Should get correct property', async () => {
+test('Data array should get the correct property', async () => {
   const { result, waitForNextUpdate } = renderHook(() => useFetchData(correctPath));
   await waitForNextUpdate({ timeout: 3000 });
   const exercice = result.current.data[0];
@@ -35,5 +35,4 @@ test('Should get correct property', async () => {
   expect(exercice).toHaveProperty('solution');
   expect(exercice).toHaveProperty('tests');
   expect(Array.isArray(exercice.tests)).toBeTruthy();
-  expect();
 });
