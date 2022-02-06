@@ -49,6 +49,7 @@ describe('API routes', () => {
         expect(res.body[0]).to.have.property('description');
         expect(res.body[0]).to.have.property('baseCode');
         expect(res.body[0]).to.have.property('tests');
+        expect(res.body[0]).to.have.property('solutions');
       });
   });
 
