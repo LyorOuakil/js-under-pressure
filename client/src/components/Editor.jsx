@@ -1,10 +1,19 @@
 import PropTypes from 'prop-types';
 import CodeEditor from '@uiw/react-textarea-code-editor';
 import { useState } from 'react';
+import { Button } from './Button';
+import { checkResult, convertStringToFunc, executeTest } from '../common/helpers';
 
 export const Editor = ({ codes }) => {
   const [code, setCode] = useState(codes.baseCode);
-  console.log(codes);
+
+  const submit = () => {
+    const fn = convertStringToFunc(code);
+    codes.tests.forEach((test) => {
+      const result = executeTest(fn, test.call);
+      return checkResult(result, test.result);
+    });
+  };
 
   return (
     <div
@@ -25,6 +34,8 @@ export const Editor = ({ codes }) => {
           fontFamily: 'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace'
         }}
       />
+
+      <Button text="RUN" onClick={submit} />
     </div>
   );
 };
