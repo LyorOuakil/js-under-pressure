@@ -8,7 +8,6 @@ export const routes = (app: Application) => {
   });
 
   app.get('/exercices', async (req, res) => {
-    console.log('hello');
     const exercices: Exercise[] = await getAll();
     return res.status(200).json(exercices);
   });
