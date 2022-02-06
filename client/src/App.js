@@ -1,7 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
+import { useFetchData } from './hooks/useFetchData';
 
 function App() {
+  const data = useFetchData('http://localhost:8080/exercices');
   return (
     <div className="App">
       <header className="App-header">
