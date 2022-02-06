@@ -5,13 +5,14 @@ import express, { Application } from 'express';
 import { initServer } from '../src/server';
 import { routes } from '../src/routes';
 import { afterEach, beforeEach } from 'mocha';
-import { Exercise, getAll } from '../src/data/exerciseSet';
+
 chai.should();
 chai.use(chaiHttp);
 
 describe('API routes', () => {
   let app: Application;
   let server: any;
+
   beforeEach(() => {
     app = express();
     server = initServer(app);
@@ -38,7 +39,7 @@ describe('API routes', () => {
       });
   });
 
-  // Test /exercice Route
+  // Test /exercices Route
   it('/exercices API should get an array of object', () => {
     chai
       .request(server)
